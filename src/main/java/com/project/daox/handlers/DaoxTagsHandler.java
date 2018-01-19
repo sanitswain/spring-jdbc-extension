@@ -6,7 +6,7 @@ public class DaoxTagsHandler extends NamespaceHandlerSupport {
 
 	@Override
 	public void init() {
-		registerBeanDefinitionParser("daox:bean", new BeanTagHandler());
+		registerBeanDefinitionParser("bean", new BeanTagHandler());
 	}
 
 }

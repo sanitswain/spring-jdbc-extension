@@ -3,7 +3,6 @@ package com.project.daox.handlers;
 import java.util.List;
 
 import org.springframework.beans.factory.FactoryBean;
-import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
 import org.springframework.beans.factory.xml.ParserContext;
@@ -32,9 +31,9 @@ public class BeanTagHandler extends AbstractSingleBeanDefinitionParser {
 		Element paramsEle = DomUtils.getChildElementByTagName(ele, "params");
 		if (paramsEle != null) {
 			List<Element> paramList = DomUtils.getChildElementsByTagName(paramsEle, "param");
-			for (Element param : paramList) {
+			for (Element paramEle : paramList) {
 				ParamTagHandler handler = new ParamTagHandler();
-				BeanDefinition def = handler.parse(param, rootCtx);
+				handler.doParse(paramEle, rootCtx, builder);
 			}
 		}
 
