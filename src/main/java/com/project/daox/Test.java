@@ -6,5 +6,6 @@ public class Test {
 	public static void main(String[] args) {
 		ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-daox.xml");
 		System.out.println(ctx);
+		System.out.println(ctx.getBean("sampleProc"));
 	}
 }

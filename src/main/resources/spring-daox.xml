@@ -8,6 +8,8 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd 
 	http://www.example.org/schema/daox ./daox-1.0.xsd">
+	
+	<context:annotation-config />
 
 	<bean id="VARCHAR"
 		class="org.springframework.beans.factory.config.FieldRetrievingFactoryBean">
@@ -19,7 +21,7 @@
 		<property name="staticField" value="java.sql.Types.REF_CURSOR" />
 	</bean>
 
-	<daox:bean id="sampleProc" sqltype="SYSTEM.some_pkg.my_proc">
+	<daox:bean id="sampleProc" query="SYSTEM.some_pkg.my_proc">
 		<daox:params>
 			<daox:param name="param1" sqltype="VARCHAR" />
 			<daox:param name="OUT:p_Message" sqltype="VARCHAR" />
